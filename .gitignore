@@ -1,2 +1,5 @@
 .vscode/
-.nuget/
+
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
