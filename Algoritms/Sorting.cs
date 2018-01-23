@@ -159,5 +159,38 @@ namespace Algoritms
 
             return ordened.ToArray();
         }
+
+        public string FullCountingSort(int n, string[] arr) 
+        {
+            int length = arr.Length;
+            int[] keys = new int[length];
+            string[] values = new string[length];
+            
+            for (int i = 0; i < length; i++) {
+                keys[i] = Convert.ToInt32(arr[i].Split(' ')[0]);
+                values[i] = i < length/2 ? "-" : arr[i].Split(' ')[1];
+            }
+
+            int[] counts = new int[keys.GroupBy(x => x).Count()];
+
+            for (int i = 0; i < keys.Length; i++)
+            {
+                counts[keys[i]]++;
+            }
+
+            List<string> strValues = new List<string>();
+            string result = "";
+            
+            for (int i = 0; i < counts.Length; i++)
+            {
+                for (int j = 0; j < keys.Length; j++) {
+                    if (keys[j] == i){
+                        result += values[j] + " ";
+                    }
+                }
+            }
+
+            return result.Trim();
+        }
     }
 }

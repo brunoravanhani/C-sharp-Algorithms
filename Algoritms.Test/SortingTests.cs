@@ -113,5 +113,15 @@ namespace Tests
         {
             Assert.AreEqual(expected, _sorting.CountingSort2(range, input));
         }
+
+        [TestCase(
+            20,
+            new string[] {"0 ab","6 cd","0 ef","6 gh","4 ij","0 ab","6 cd","0 ef","6 gh","0 ij","4 that","3 be","0 to","1 be","5 question","1 or","2 not","4 is","2 to","4 the"},
+            "- - - - - to be or not to be - that is the question - - - -"
+        )]
+        public void FullCountingSort(int size, string[] input, string expected) 
+        {
+            Assert.AreEqual(expected, _sorting.FullCountingSort(size, input));
+        }
     }
 }
