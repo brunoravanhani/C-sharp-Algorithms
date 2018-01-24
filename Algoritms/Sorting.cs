@@ -192,5 +192,43 @@ namespace Algoritms
 
             return result.Trim();
         }
+
+        public int[] ClosestNumber (int[] arr)
+        {
+            int length = arr.Length;
+            int minAbs = 0;
+            List<int> result = new List<int>();
+
+            for (int i = 0; i < length; i++) 
+            {
+                var val = arr[i];
+                if (i + 1 >= length) {
+                    break;
+                }
+                for (int j = i + 1; j < length; j++)
+                {
+                    var abs = Math.Abs(val - arr[j]);
+
+                    if (minAbs == 0 && abs != 0) {
+                        minAbs = abs;
+                        result.Add(val);
+                        result.Add(arr[j]);
+                    } else if (abs != 0 && minAbs == abs) 
+                    {
+                        result.Add(val);
+                        result.Add(arr[j]);
+                    } else if (abs < minAbs)
+                    {
+                        minAbs = abs;
+                        result.Clear();
+                        result.Add(val);
+                        result.Add(arr[j]);
+                    }
+
+                }
+            }
+            result.Sort();
+            return result.ToArray();
+        }
     }
 }
