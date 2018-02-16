@@ -230,5 +230,10 @@ namespace Algoritms
             result.Sort();
             return result.ToArray();
         }
+
+        public int FindMedian(int[] arr)
+        {
+            return 0;
+        } 
     }
 }
