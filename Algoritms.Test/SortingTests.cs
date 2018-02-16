@@ -1,5 +1,9 @@
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Algoritms;
+using Infrastructure.Clients;
+using Infrastructure.DTOs;
 using NUnit.Framework;
 
 namespace Tests
@@ -134,6 +138,10 @@ namespace Tests
             var result = String.Join(" ", _sorting.ClosestNumber(arrInput));
 
             Assert.AreEqual(expected, result);
+        }
+
+        public void FindMedian() {
+            
         }
     }
 }
