@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Algoritms;
 
 using NUnit.Framework;
+using Tests.Mocks;
 
 namespace Tests
 {
@@ -139,8 +140,17 @@ namespace Tests
             Assert.AreEqual(expected, result);
         }
 
-        public void FindMedian() {
-            
+        [TestCase(new int[] {1000,1001,1002,1003,1004}, 1002)]
+        public void FindMedianTest(int[] input, int expected) {
+            Assert.AreEqual(expected, _sorting.FindMedian(input));
         }
+        
+        [Test]
+        public void FindMedianTest1() {
+            var input = FindMedian1.Mock;
+            var expected = FindMedian1.Expected;
+            Assert.AreEqual(expected, _sorting.FindMedian(input));
+        }
+
     }
 }

@@ -231,9 +231,21 @@ namespace Algoritms
             return result.ToArray();
         }
 
-        public int FindMedian(int[] arr)
+        public int FindMedian(int[] arr) 
         {
-            return 0;
-        } 
+            var length = arr.Length;
+            if (length == 0) 
+                return 0;
+            
+            var sum = 0;
+
+            for (int i = 0; i < length; i++)
+            {
+                sum += arr[i];
+            }
+            var median = sum / length;
+
+            return median;
+        }
     }
 }
