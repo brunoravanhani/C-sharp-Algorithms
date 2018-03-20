@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Algoritms;
@@ -150,6 +152,38 @@ namespace Tests
             var input = FindMedian1.Mock;
             var expected = FindMedian1.Expected;
             Assert.AreEqual(expected, _sorting.FindMedian(input));
+        }
+
+        [TestCase(new int[] {1,1,1,2,2}, 0)]
+        [TestCase(new int[] {2,1,3,1,2}, 4)]
+        public void InsertionSortAdvanced1(int[] input, int expected) 
+        {
+            Assert.AreEqual(expected, _sorting.InsetionSortAdvanced(input));
+            
+        }
+
+        [Test]
+        public void InsertionSortAdvanced2() 
+        {
+            string[] textInput = System.IO.File.ReadAllLines(@"..\..\..\Mocks\InsertionSortAdvanced\Input-01.txt");
+            string[] textExpected = System.IO.File.ReadAllLines(@"..\..\..\Mocks\InsertionSortAdvanced\Expected-01.txt");
+
+            List<int[]> inputs = new List<int[]>();
+            List<int> expecteds = textExpected.Select(x => int.Parse(x)).ToList();
+
+            foreach (var item in textInput) 
+            {
+                var arr = item.Split(' ');
+                if (arr.Length > 1) {
+                    inputs.Add(arr.Select(x => int.Parse(x)).ToArray());
+                }
+            }
+
+            for(int i = 0; i < inputs.Count; i++)
+            {
+                Assert.AreEqual(expecteds[i], _sorting.InsetionSortAdvanced(inputs[i]));
+            }
+
         }
 
     }
