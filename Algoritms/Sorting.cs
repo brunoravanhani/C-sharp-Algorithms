@@ -247,5 +247,30 @@ namespace Algoritms
 
             return median;
         }
+
+        public int InsetionSortAdvanced (int[] arr) 
+        {
+
+            int count = 0;
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                var value = arr[i];
+                int position = i;
+
+                for (int j = i; j >= 0; j--) 
+                {
+                    if (value < arr[j])
+                    {
+                        count++;
+                        arr[position] = arr[j];
+                        arr[j] = value;
+                        position = j;
+                    }
+                }
+            }
+            Console.WriteLine(count.ToString());
+            return count;
+        }
     }
 }
