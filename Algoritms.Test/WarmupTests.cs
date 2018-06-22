@@ -43,5 +43,17 @@ namespace Tests
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase("07:05:45AM")]
+        [TestCase("07:05:45PM")]
+        public void TimeConversionTest(string input) 
+        {
+            var date = DateTime.Parse(input);
+            var expected = date.ToString("HH:mm:ss");
+
+            var result = TimeConversion.Run(input);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
