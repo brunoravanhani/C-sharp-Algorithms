@@ -35,5 +35,13 @@ namespace Tests
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase(new int[]{3,2,1,3,3}, 3)]
+        public void BirthdayCakeCandlesTest(int[] input, int expected) 
+        {
+            var result = BirthdayCakeCandles.Run(input);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
