@@ -46,6 +46,8 @@ namespace Tests
 
         [TestCase("07:05:45AM")]
         [TestCase("07:05:45PM")]
+        [TestCase("12:40:22AM")]
+        [TestCase("12:45:54PM")]
         public void TimeConversionTest(string input) 
         {
             var date = DateTime.Parse(input);

@@ -15,9 +15,15 @@ namespace Algoritms.Warmup {
             var minute = sArr[1];
             var second = sArr[2];
             
-            if (isPM.Success) {
+            if (isPM.Success && !hour.Equals("12")) 
+            {
                 var intHour = Int32.Parse(hour) + 12;
                 hour = intHour.ToString();
+            }
+
+            if (!isPM.Success && hour.Equals("12"))
+            {
+                hour = "00";
             }
 
             return $"{hour}:{minute}:{second}";
