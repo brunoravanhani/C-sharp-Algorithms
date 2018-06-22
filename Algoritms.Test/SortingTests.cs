@@ -147,7 +147,7 @@ namespace Tests
             Assert.AreEqual(expected, _sorting.FindMedian(input));
         }
         
-        // [Test]
+        [Test]
         public void FindMedianTest1() {
             var input = FindMedian1.Mock;
             var expected = FindMedian1.Expected;
@@ -162,7 +162,7 @@ namespace Tests
             
         }
 
-        // [Test]
+        [Test]
         public void InsertionSortAdvanced2() 
         {
             string[] textInput = System.IO.File.ReadAllLines(@"..\..\..\Mocks\InsertionSortAdvanced\Input-01.txt");
